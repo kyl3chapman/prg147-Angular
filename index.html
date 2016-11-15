@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Angular JS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>lawn mowing estimate</h1>
+    </header>
+    <div ng-app="myApp" ng-controller="myCtrl" ng-init="frontyard = 0; backyard = 0; leftside = 0; rightside = 0;" class="container">
+
+        <span class="form-label">First Name: </span>
+        <input type="text" ng-model="firstName" class="form-entry">
+        <span class="form-label">Last Name: </span>
+        <input type="text" ng-model="lastName" class="form-entry">
+        <br>
+        <span class="form-label">Front Yard: </span>
+        <input type="text" ng-model="frontyard" class="form-entry">
+        <br>
+        <span class="form-label">Backyard: </span>
+        <input type="text" ng-model="backyard" class="form-entry">
+        <br>
+        <span class="form-label">Left Side: </span>
+        <input type="text" ng-model="leftside" class="form-entry">
+        <br>
+        <span class="form-label">Right Side: </span>
+        <input type="text" ng-model="rightside" class="form-entry">
+
+
+
+
+        <br>
+        <p>Estimate for: {{firstName + " " + lastName}}</p>
+        <p>Square footage of the yard  is: {{(frontyard*frontyard) + (backyard*backyard) + (leftside*leftside) + (rightside*rightside)}} </p>
+        <p>At $.10 per square foot, the estimate comes to: {{((frontyard*frontyard) + (backyard*backyard) + (leftside*leftside) + (rightside*rightside)) * .1}}</p>
+
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+
+
+        });
+    </script>
+</body>
+
+</html>
